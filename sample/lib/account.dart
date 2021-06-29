@@ -1,8 +1,8 @@
 import 'package:preference/pref.dart';
 
 class Account implements Pref<Account> {
-  String name;
-  int age;
+  String? name;
+  int? age;
 
   Account({this.name, this.age});
 

@@ -37,33 +37,33 @@ class PrefManager {
 
   Future<T> read<T extends Pref>(Pref pref) async {
     SharedPreferences shared = await SharedPreferences.getInstance();
-    Map<String, dynamic> map = json.decode(shared.getString(pref.key()));
+    Map<String, dynamic> map = json.decode(shared.getString(pref.key()) ?? "");
     pref = pref.read(map);
 
     return Future.value(pref as T);
   }
 
-  Future<int> readInt(String key) async {
+  Future<int?> readInt(String key) async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return shared.getInt(key);
   }
 
-  Future<String> readString(String key) async {
+  Future<String?> readString(String key) async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return shared.getString(key);
   }
 
-  Future<bool> readBool(String key) async {
+  Future<bool?> readBool(String key) async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return shared.getBool(key);
   }
 
-  Future<double> readDouble(String key) async {
+  Future<double?> readDouble(String key) async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return shared.getDouble(key);
   }
 
-  Future<List<String>> readStringList(String key) async {
+  Future<List<String>?> readStringList(String key) async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return shared.getStringList(key);
   }
